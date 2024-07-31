@@ -23,15 +23,19 @@ class TaskGroupSectionDataManager {
     }
     
     func fetchImagesWithTaskGroup() async throws -> [ImageInfo] {
+        let maxCount = 6
         var imageData: [ImageInfo] = []
+        imageData.reserveCapacity(maxCount)
         
         try await withThrowingTaskGroup(of: ImageInfo.self) { [unowned self] group in
-            group.addTask { try await self.fetchImage() }
-            group.addTask { try await self.fetchImage() }
-            group.addTask { try await self.fetchImage() }
-            group.addTask { try await self.fetchImage() }
-            group.addTask { try await self.fetchImage() }
-            group.addTask { try await self.fetchImage() }
+            Range(1...maxCount).forEach { _ in
+                group.addTask {
+                    // For testing purpose only.
+                    // use try will throw error out the whole group even just on failed call
+                    // use try? if you want to return the success calls, and ignore the failed call
+                    try await self.fetchImage()
+                }
+            }
             
             // order is not guaranteed. First In First Serve
             for try await imageInfo in group {
