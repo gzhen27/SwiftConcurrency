@@ -25,11 +25,6 @@ class AsyncLetViewModel {
     }
 }
 
-struct ImageInfo: Identifiable {
-    let id = UUID()
-    let image: Image
-}
-
 struct AsyncLetSection: View {
     @State private var viewModel = AsyncLetViewModel()
     let gridItems = [GridItem(), GridItem()]
