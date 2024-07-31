@@ -14,6 +14,7 @@
 		EB53C20D2C595F7700D4810E /* SwiftConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C20C2C595F7700D4810E /* SwiftConcurrencyTests.swift */; };
 		EB53C2172C595F7700D4810E /* SwiftConcurrencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C2162C595F7700D4810E /* SwiftConcurrencyUITests.swift */; };
 		EB53C2192C595F7700D4810E /* SwiftConcurrencyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C2182C595F7700D4810E /* SwiftConcurrencyUITestsLaunchTests.swift */; };
+		EB7771862C5A8D90002C2653 /* AsyncAwaitSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7771852C5A8D90002C2653 /* AsyncAwaitSection.swift */; };
 		EBD82A552C5975F700148D27 /* DoCatchTryThrowsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD82A542C5975F700148D27 /* DoCatchTryThrowsSection.swift */; };
 		EBD82A572C598E5700148D27 /* DownloadImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD82A562C598E5700148D27 /* DownloadImageSection.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		EB53C2122C595F7700D4810E /* SwiftConcurrencyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftConcurrencyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB53C2162C595F7700D4810E /* SwiftConcurrencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftConcurrencyUITests.swift; sourceTree = "<group>"; };
 		EB53C2182C595F7700D4810E /* SwiftConcurrencyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftConcurrencyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EB7771852C5A8D90002C2653 /* AsyncAwaitSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitSection.swift; sourceTree = "<group>"; };
 		EBD82A542C5975F700148D27 /* DoCatchTryThrowsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoCatchTryThrowsSection.swift; sourceTree = "<group>"; };
 		EBD82A562C598E5700148D27 /* DownloadImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 			children = (
 				EBD82A542C5975F700148D27 /* DoCatchTryThrowsSection.swift */,
 				EBD82A562C598E5700148D27 /* DownloadImageSection.swift */,
+				EB7771852C5A8D90002C2653 /* AsyncAwaitSection.swift */,
 			);
 			path = Playground;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				EBD82A572C598E5700148D27 /* DownloadImageSection.swift in Sources */,
 				EBD82A552C5975F700148D27 /* DoCatchTryThrowsSection.swift in Sources */,
 				EB53C1FC2C595F7600D4810E /* SwiftConcurrencyApp.swift in Sources */,
+				EB7771862C5A8D90002C2653 /* AsyncAwaitSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
