@@ -9,3 +9,8 @@
 - https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/
 - https://developer.apple.com/documentation/swift/concurrency/
 
+## Topics
+- Do/Try/Catch/Throws
+- Async/Await
+- Task/.task
+- Async Let

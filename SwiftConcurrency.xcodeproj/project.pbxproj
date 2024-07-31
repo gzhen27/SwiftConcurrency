@@ -16,6 +16,7 @@
 		EB53C2192C595F7700D4810E /* SwiftConcurrencyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C2182C595F7700D4810E /* SwiftConcurrencyUITestsLaunchTests.swift */; };
 		EB7771862C5A8D90002C2653 /* AsyncAwaitSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7771852C5A8D90002C2653 /* AsyncAwaitSection.swift */; };
 		EB7771882C5A9B7B002C2653 /* TaskSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7771872C5A9B7B002C2653 /* TaskSection.swift */; };
+		EB77718A2C5AD61C002C2653 /* AsyncLetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7771892C5AD61C002C2653 /* AsyncLetSection.swift */; };
 		EBD82A552C5975F700148D27 /* DoCatchTryThrowsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD82A542C5975F700148D27 /* DoCatchTryThrowsSection.swift */; };
 		EBD82A572C598E5700148D27 /* DownloadImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD82A562C598E5700148D27 /* DownloadImageSection.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		EB53C2182C595F7700D4810E /* SwiftConcurrencyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftConcurrencyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EB7771852C5A8D90002C2653 /* AsyncAwaitSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitSection.swift; sourceTree = "<group>"; };
 		EB7771872C5A9B7B002C2653 /* TaskSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSection.swift; sourceTree = "<group>"; };
+		EB7771892C5AD61C002C2653 /* AsyncLetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncLetSection.swift; sourceTree = "<group>"; };
 		EBD82A542C5975F700148D27 /* DoCatchTryThrowsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoCatchTryThrowsSection.swift; sourceTree = "<group>"; };
 		EBD82A562C598E5700148D27 /* DownloadImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 				EBD82A562C598E5700148D27 /* DownloadImageSection.swift */,
 				EB7771852C5A8D90002C2653 /* AsyncAwaitSection.swift */,
 				EB7771872C5A9B7B002C2653 /* TaskSection.swift */,
+				EB7771892C5AD61C002C2653 /* AsyncLetSection.swift */,
 			);
 			path = Playground;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			files = (
 				EB53C1FE2C595F7600D4810E /* ContentView.swift in Sources */,
 				EBD82A572C598E5700148D27 /* DownloadImageSection.swift in Sources */,
+				EB77718A2C5AD61C002C2653 /* AsyncLetSection.swift in Sources */,
 				EBD82A552C5975F700148D27 /* DoCatchTryThrowsSection.swift in Sources */,
 				EB53C1FC2C595F7600D4810E /* SwiftConcurrencyApp.swift in Sources */,
 				EB7771882C5A9B7B002C2653 /* TaskSection.swift in Sources */,
