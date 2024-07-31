@@ -14,18 +14,12 @@ class TaskGroupSectionDataManager {
         async let imageTask03 = fetchImage()
         async let imageTask04 = fetchImage()
         
-        do {
-            let result =  await [
-                try imageTask01,
-                try imageTask02,
-                try imageTask03,
-                try imageTask04
-            ]
-            return result
-        } catch  {
-            throw error
-        }
-        
+        return await [
+            try imageTask01,
+            try imageTask02,
+            try imageTask03,
+            try imageTask04
+        ]
     }
     
     private func fetchImage() async throws -> ImageInfo {
