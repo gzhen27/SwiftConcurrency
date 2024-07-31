@@ -29,12 +29,14 @@ class AsyncAwaitViewModel {
     
     func updateItems() async {
         //Class property 'current' is unavailable from asynchronous contexts; Thread.current cannot be used from async contexts.; this is an error in Swift 6
-        self.items.append("Itme 01 : \(Thread.current)")
+//        self.items.append("Itme 01 : \(Thread.current)")
+        self.items.append("Itme 01")
         
         try? await Task.sleep(nanoseconds: 2_000_000_000)
         
         //Class property 'current' is unavailable from asynchronous contexts; Thread.current cannot be used from async contexts.; this is an error in Swift 6
-        self.items.append("Itme 02 : \(Thread.current)")
+//        self.items.append("Itme 02 : \(Thread.current)")
+        self.items.append("Itme 02")
     }
 }
 
