@@ -8,7 +8,7 @@
 import SwiftUI
 
 class TaskGroupSectionDataManager {
-    func fetchImageWithAsyncLet() async throws-> [ImageInfo] {
+    func fetchImagesWithAsyncLet() async throws-> [ImageInfo] {
         async let imageTask01 = fetchImage()
         async let imageTask02 = fetchImage()
         async let imageTask03 = fetchImage()
@@ -20,6 +20,26 @@ class TaskGroupSectionDataManager {
             try imageTask03,
             try imageTask04
         ]
+    }
+    
+    func fetchImagesWithTaskGroup() async throws -> [ImageInfo] {
+        var imageData: [ImageInfo] = []
+        
+        try await withThrowingTaskGroup(of: ImageInfo.self) { [unowned self] group in
+            group.addTask { try await self.fetchImage() }
+            group.addTask { try await self.fetchImage() }
+            group.addTask { try await self.fetchImage() }
+            group.addTask { try await self.fetchImage() }
+            group.addTask { try await self.fetchImage() }
+            group.addTask { try await self.fetchImage() }
+            
+            // order is not guaranteed. First In First Serve
+            for try await imageInfo in group {
+                imageData.append(imageInfo)
+            }
+        }
+        
+        return imageData
     }
     
     private func fetchImage() async throws -> ImageInfo {
@@ -42,7 +62,7 @@ class TaskGroupSectionViewModel {
     
     func fetch() async {
         do {
-            self.imageData = try await manager.fetchImageWithAsyncLet()
+            self.imageData = try await manager.fetchImagesWithTaskGroup()
         } catch  {
             print(error.localizedDescription)
         }
