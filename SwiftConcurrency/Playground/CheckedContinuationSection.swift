@@ -31,6 +31,21 @@ class CheckedContinuationNetworkManager {
             .resume()
         }
     }
+    
+    private func getHeartImage(completionHandler: @escaping (_ image: Image) -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            let image = Image(systemName: "heart")
+            completionHandler(image)
+        }
+    }
+    
+    func getHeartImage() async throws -> Image {
+        return await withCheckedContinuation { continuation in
+            getHeartImage { image in
+                continuation.resume(returning: image)
+            }
+        }
+    }
 }
 
 @Observable
@@ -51,6 +66,17 @@ class CheckedContinuationViewModel {
             print(error.localizedDescription)
         }
     }
+    
+    func loadHeart() async {
+//        manager.getHeartImage { [weak self] image in
+//            self?.image = image
+//        }
+        do {
+            self.image = try await manager.getHeartImage()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 struct CheckedContinuationSection: View {
@@ -67,7 +93,8 @@ struct CheckedContinuationSection: View {
             }
         }
         .task {
-            await viewModel.load()
+//            await viewModel.load()
+            await viewModel.loadHeart()
         }
     }
 }
