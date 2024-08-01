@@ -16,6 +16,21 @@ class CheckedContinuationNetworkManager {
             throw error
         }
     }
+    
+    func getDataWithCompletionHandler(from url: URL) async throws -> Data {
+        return try await withCheckedThrowingContinuation { continuation in
+            URLSession.shared.dataTask(with: url) { data, _, error in
+                if let data = data {
+                    continuation.resume(returning: data)
+                } else if let error = error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume(throwing: URLError(.badURL))
+                }
+            }
+            .resume()
+        }
+    }
 }
 
 @Observable
@@ -26,7 +41,7 @@ class CheckedContinuationViewModel {
     func load() async {
         guard let url = URL(string: "https://picsum.photos/300") else { return }
         do {
-            let data = try await manager.getData(from: url)
+            let data = try await manager.getDataWithCompletionHandler(from: url)
             if let image = UIImage(data: data) {
                 self.image = Image(uiImage: image)
             } else {
