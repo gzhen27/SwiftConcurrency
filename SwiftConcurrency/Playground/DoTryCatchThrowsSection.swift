@@ -1,5 +1,5 @@
 //
-//  DoCatchTryThrowsSection.swift
+//  DoTryCatchThrowsSection.swift
 //  SwiftConcurrency
 //
 //  Created by G Zhen on 7/30/24.
@@ -18,7 +18,7 @@ enum PlaygroundError: Error {
     }
 }
 
-class DoCatchTryThrowsDataManager {
+class DoTryCatchThrowsDataManager {
     // isActive is a constant and always be FALSE.
     // getContent() will alwasy return nil value.
     let isActive = false
@@ -29,10 +29,10 @@ class DoCatchTryThrowsDataManager {
     }
 }
 
-class DoCatchTryThrowsViewModel: ObservableObject {
+class DoTryCatchThrowsViewModel: ObservableObject {
     @Published var content = "Initial Content"
     
-    let manager = DoCatchTryThrowsDataManager()
+    let manager = DoTryCatchThrowsDataManager()
     
     func fetch() {
         do {
@@ -45,8 +45,8 @@ class DoCatchTryThrowsViewModel: ObservableObject {
     }
 }
 
-struct DoCatchTryThrowsSection: View {
-    @StateObject private var viewModel = DoCatchTryThrowsViewModel()
+struct DoTryCatchThrowsSection: View {
+    @StateObject private var viewModel = DoTryCatchThrowsViewModel()
     
     var body: some View {
         Text(viewModel.content)
@@ -62,5 +62,5 @@ struct DoCatchTryThrowsSection: View {
 }
 
 #Preview {
-    DoCatchTryThrowsSection()
+    DoTryCatchThrowsSection()
 }
