@@ -40,6 +40,7 @@ actor SharedDataManagerActor {
     static let shared = SharedDataManagerActor()
     
     var data: [String] = []
+    nonisolated let example = UUID().uuidString
     
     private init() {}
     
@@ -62,6 +63,9 @@ struct FirstView: View {
                 .ignoresSafeArea()
             Text(content)
                 .font(.headline)
+        }
+        .onAppear {
+            print("try out the nonisolated keyword \(manager.example)")
         }
         .onReceive(timer, perform: { _ in
             /*
