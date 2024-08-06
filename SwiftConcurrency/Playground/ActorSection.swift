@@ -8,6 +8,7 @@
 import SwiftUI
 
 class SharedDataManager {
+    // ONLY use Singleton for testing purpose
     static let shared = SharedDataManager()
     
     var data: [String] = []
@@ -34,8 +35,23 @@ class SharedDataManager {
     }
 }
 
+actor SharedDataManagerActor {
+    // ONLY use Singleton for testing purpose
+    static let shared = SharedDataManagerActor()
+    
+    var data: [String] = []
+    
+    private init() {}
+    
+    func insertRandomData() -> String? {
+        data.append(UUID().uuidString)
+        print(Thread.current)
+        return data.randomElement()
+    }
+}
+
 struct FirstView: View {
-    let manager = SharedDataManager.shared
+    let manager = SharedDataManagerActor.shared
     @State private var content = ""
     let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
@@ -48,6 +64,7 @@ struct FirstView: View {
                 .font(.headline)
         }
         .onReceive(timer, perform: { _ in
+            /*
             DispatchQueue.global(qos: .background).async {
                 manager.insertRandomDataWithCompletionHandler { content in
                     if let content = content {
@@ -63,12 +80,21 @@ struct FirstView: View {
 //                    }
 //                }
             }
+             */
+            
+            Task {
+                if let content = await manager.insertRandomData() {
+                    await MainActor.run {
+                        self.content = content
+                    }
+                }
+            }
         })
     }
 }
 
 struct SecondView: View {
-    let manager = SharedDataManager.shared
+    let manager = SharedDataManagerActor.shared
     @State private var content = ""
     let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
@@ -81,12 +107,28 @@ struct SecondView: View {
                 .font(.headline)
         }
         .onReceive(timer, perform: { _ in
+            /*
             DispatchQueue.global(qos: .default).async {
                 manager.insertRandomDataWithCompletionHandler { content in
                     if let content = content {
                         DispatchQueue.main.async {
                             self.content = content
                         }
+                    }
+                }
+                
+//                if let data = manager.insertRandomData() {
+//                    DispatchQueue.main.async {
+//                        self.content = data
+//                    }
+//                }
+            }
+             */
+            
+            Task {
+                if let content = await manager.insertRandomData() {
+                    await MainActor.run {
+                        self.content = content
                     }
                 }
             }
