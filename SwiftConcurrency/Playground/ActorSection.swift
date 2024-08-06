@@ -14,10 +14,23 @@ class SharedDataManager {
     
     private init() {}
     
-    func insertRandomData() -> String? {
-        data.append(UUID().uuidString)
-        print(Thread.current)
-        return data.randomElement()
+    // This function will casue data race.
+    // Different threads acces the class at the same time
+    //    func insertRandomData() -> String? {
+    //        data.append(UUID().uuidString)
+    //        print(Thread.current)
+    //        return data.randomElement()
+    //    }
+    
+    // MARK: Solution without using Actor, create a specific queue to when accsing the data object.
+    private let queue = DispatchQueue(label: "SharedDataManagerQueue")
+    
+    func insertRandomDataWithCompletionHandler(completionHandler: @escaping (_ content: String?) -> ()) {
+        queue.async {
+            self.data.append(UUID().uuidString)
+            print(Thread.current)
+            completionHandler(self.data.randomElement())
+        }
     }
 }
 
@@ -36,11 +49,19 @@ struct FirstView: View {
         }
         .onReceive(timer, perform: { _ in
             DispatchQueue.global(qos: .background).async {
-                if let data = manager.insertRandomData() {
-                    DispatchQueue.main.async {
-                        self.content = data
+                manager.insertRandomDataWithCompletionHandler { content in
+                    if let content = content {
+                        DispatchQueue.main.async {
+                            self.content = content
+                        }
                     }
                 }
+                
+//                if let data = manager.insertRandomData() {
+//                    DispatchQueue.main.async {
+//                        self.content = data
+//                    }
+//                }
             }
         })
     }
@@ -61,9 +82,11 @@ struct SecondView: View {
         }
         .onReceive(timer, perform: { _ in
             DispatchQueue.global(qos: .default).async {
-                if let data = manager.insertRandomData() {
-                    DispatchQueue.main.async {
-                        self.content = data
+                manager.insertRandomDataWithCompletionHandler { content in
+                    if let content = content {
+                        DispatchQueue.main.async {
+                            self.content = content
+                        }
                     }
                 }
             }
