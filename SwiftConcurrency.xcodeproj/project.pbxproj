@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB04D54A2C65266300F2546A /* SendableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB04D5492C65266300F2546A /* SendableSection.swift */; };
+		EB04D54C2C65642100F2546A /* AsyncPublisherSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB04D54B2C65642100F2546A /* AsyncPublisherSection.swift */; };
 		EB53C1FC2C595F7600D4810E /* SwiftConcurrencyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C1FB2C595F7600D4810E /* SwiftConcurrencyApp.swift */; };
 		EB53C1FE2C595F7600D4810E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C1FD2C595F7600D4810E /* ContentView.swift */; };
 		EB53C2002C595F7700D4810E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB53C1FF2C595F7700D4810E /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		EB04D5492C65266300F2546A /* SendableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendableSection.swift; sourceTree = "<group>"; };
+		EB04D54B2C65642100F2546A /* AsyncPublisherSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncPublisherSection.swift; sourceTree = "<group>"; };
 		EB53C1F82C595F7600D4810E /* SwiftConcurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftConcurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB53C1FB2C595F7600D4810E /* SwiftConcurrencyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftConcurrencyApp.swift; sourceTree = "<group>"; };
 		EB53C1FD2C595F7600D4810E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				EB8E27BD2C62C39600B73D4F /* ActorSection.swift */,
 				EBAFAD6A2C641F7300BBB6E7 /* GlobalActorSection.swift */,
 				EB04D5492C65266300F2546A /* SendableSection.swift */,
+				EB04D54B2C65642100F2546A /* AsyncPublisherSection.swift */,
 			);
 			path = Playground;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				EBD82A552C5975F700148D27 /* DoTryCatchThrowsSection.swift in Sources */,
 				EB77718E2C5AE94F002C2653 /* SharedStructs.swift in Sources */,
 				EB53C1FC2C595F7600D4810E /* SwiftConcurrencyApp.swift in Sources */,
+				EB04D54C2C65642100F2546A /* AsyncPublisherSection.swift in Sources */,
 				EB8E27BE2C62C39600B73D4F /* ActorSection.swift in Sources */,
 				EBBFB5E22C5BE81C00A428C1 /* CheckedContinuationSection.swift in Sources */,
 				EB7771882C5A9B7B002C2653 /* TaskSection.swift in Sources */,
