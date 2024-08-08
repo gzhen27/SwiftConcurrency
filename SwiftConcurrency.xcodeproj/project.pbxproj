@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB04D54A2C65266300F2546A /* SendableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB04D5492C65266300F2546A /* SendableSection.swift */; };
 		EB53C1FC2C595F7600D4810E /* SwiftConcurrencyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C1FB2C595F7600D4810E /* SwiftConcurrencyApp.swift */; };
 		EB53C1FE2C595F7600D4810E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53C1FD2C595F7600D4810E /* ContentView.swift */; };
 		EB53C2002C595F7700D4810E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB53C1FF2C595F7700D4810E /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB04D5492C65266300F2546A /* SendableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendableSection.swift; sourceTree = "<group>"; };
 		EB53C1F82C595F7600D4810E /* SwiftConcurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftConcurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB53C1FB2C595F7600D4810E /* SwiftConcurrencyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftConcurrencyApp.swift; sourceTree = "<group>"; };
 		EB53C1FD2C595F7600D4810E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				EBBFB5E12C5BE81C00A428C1 /* CheckedContinuationSection.swift */,
 				EB8E27BD2C62C39600B73D4F /* ActorSection.swift */,
 				EBAFAD6A2C641F7300BBB6E7 /* GlobalActorSection.swift */,
+				EB04D5492C65266300F2546A /* SendableSection.swift */,
 			);
 			path = Playground;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				EB7771882C5A9B7B002C2653 /* TaskSection.swift in Sources */,
 				EB77718C2C5AE8F2002C2653 /* TaskGroupSection.swift in Sources */,
 				EB7771862C5A8D90002C2653 /* AsyncAwaitSection.swift in Sources */,
+				EB04D54A2C65266300F2546A /* SendableSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
