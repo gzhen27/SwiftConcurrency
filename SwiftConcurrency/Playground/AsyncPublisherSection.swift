@@ -25,7 +25,7 @@ class AsyncPublisherDataManager {
 
 @Observable
 class AsyncPublisherViewModel {
-    var items: [String] = []
+    @MainActor var items: [String] = []
     var cancellables = Set<AnyCancellable>()
     private let manager = AsyncPublisherDataManager()
     
@@ -34,12 +34,20 @@ class AsyncPublisherViewModel {
     }
     
     private func addSubscribers() {
-        manager.$data
-            .receive(on: DispatchQueue.main)
-            .sink { data in
-                self.items = data
+        Task {
+            for await value in manager.$data.values {
+                await MainActor.run {
+                    self.items = value
+                }
             }
-            .store(in: &cancellables)
+        }
+        
+//        manager.$data
+//            .receive(on: DispatchQueue.main)
+//            .sink { data in
+//                self.items = data
+//            }
+//            .store(in: &cancellables)
     }
     
     func fetch() async {
